@@ -1,0 +1,53 @@
+ReactJs 으로만 제작된 웹페이지는 사용자의 네트워크에서 문제가 발생했을 때 
+빈화면만을 보여줄 수 없다는 단점이 있다. React JS 는 서버로 부터 js 파일을 받아오기 때문에
+네트워크 속도에 큰 영향을 받아 로딩이 길어지면 사용자에게 불편함을 줄 수 있다.
+
+gatsby 와 같은 프레임워크는 이러한 단점을 보완하기 위해서 만들어졌다.
+
+예를 들어 전자상거래사이트(e-Commerce)를 제작한다고 가정하자. 이 사이트는 다양한 물건의 정보를 사용자에게 보여준다.
+물건의 사진들만 해도 많은 다운로드가 발생하는데, 모든 물건 사진들 뿐만 아니라 배너, 애니메이션 등 다양한 컨텐츠를 
+모두 로드될 때까지 사용자는 빈화면만을 볼 수 밖에 없어진다. 
+
+결국 react JS 만으로는 모든 컨텐츠들이 로드되기 전까진 사용자에게 빈화면만을 보여줄 수 밖에 없다.
+
+Gatsby 나 NextJS 등의 프레임워크들은 이러한 단점을 보완하여
+먼저 보여줄 수 있는 컨텐츠만을 (텍스트 정보) 사용자에게 보여주고, 나중에 로드되는 정보들은 후에 보여줄 수 있다면
+사용자의 불편함을 줄여줄 수 있다. 
+
+
+[ Gatsby 는 정적웹사이트를 제작할 때 큰 강점을 가지고 있다. ]
+
+1. Gatsby 는 빠르게 로드되는 정적 웹사이트를 빌드해준다. 빌드 시 최상의 최적화 상태를 유지한다.
+https://www.gatsbyjs.com/docs/glossary/build/
+https://www.gatsbyjs.com/docs/conceptual/overview-of-the-gatsby-build-process/
+
+reactJS 가 작업을 마치기 전에 HTML 를 생성하여 사용자에게 보여준다.
+
+
+2. Router 파일을 별도로 작성하지 않아도 된다.
+
+프레임워크에서 지정한 규칙에 따라 작성하면 자동으로 라우팅된다. 
+
+page 의 경우 src/pages 파일안에 존재해야한다.
+
+3. 사용자가 접속할때 데이터를 가져올 수 있다.
+
+reactJS 에서는 useHook 을 사용하여 데이터를 fetch 할 경우 컴포넌트가 랜더링 된 이후에 발생한다.
+사용자가 데이터를 보기 까지의 시간이 걸리게 된다.
+Gatsby 는 html 생성 중에 데이터를 fetch 하기 시작하고, 받아온 데이터로 html 을 생성할 수 있다,.
+
+
+[ Gatsby Plugin Library ]
+Gatsby 사이트나 앱을 커스텀할 수 있는 기능을 제공하는 라이브러리들
+https://www.gatsbyjs.com/plugins
+
+
+1. gatsby-source-filesystem
+
+로컬 파일 시스템에서 Gatsby 애플리케이션으로 데이터를 sourcing하기 위한 Gatsby 소스 플러그인. 플러그인은 파일에서 파일 노드를 생성합니다. 다양한 "transformer" 플러그인은 파일 노드를 다양한 다른 유형의 데이터로 변환할 수 있습니다.
+
+2. gatsby-plugin-mdx : npm install gatsby-plugin-mdx gatsby-source-filesystem @mdx-js/react
+
+gatsby-plugin-mdx는 Gatsby와 함께 MDX를 사용하기 위한 공식 통합입니다. MDX는 마크다운 안에 포함된 JSX를 작성할 수 있습니다. 사소한 일에는 마크다운의 간결한 구문(예: # heading)을 사용하고 고급 구성 요소에는 JSX를 사용할 수 있기 때문에 훌륭한 조합입니다.
+
+VSCODE : MDX, 확장프로그램 설치
